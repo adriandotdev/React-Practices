@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/markdown-previewer/node_modules
 /.pnp
 .pnp.js
 
@@ -9,6 +10,8 @@
 /coverage
 
 # production
+/markdown-previewer/build
+/random-quote-generator/build
 /build
 
 # misc
