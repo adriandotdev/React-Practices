@@ -19,6 +19,7 @@ class Markdown extends React.Component {
     }
 
     componentDidMount() {
+        document.title = 'Markdown Previewer | adriandotdev';
         document.getElementById('preview').innerHTML = marked.parse(this.state.markdown);
     }
 
