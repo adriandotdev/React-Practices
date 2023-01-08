@@ -2,6 +2,7 @@ import React from 'react';
 import {Button, Container, Row, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Heading from '../components/Heading';
+import {marked} from 'marked';
 
 class Markdown extends React.Component {
 
@@ -9,18 +10,30 @@ class Markdown extends React.Component {
         super(props);
 
         this.state = {
-            markdown: '',
+            markdown: '# Heading 1\n## Heading 2\n\n`inline-code`\n**bold**\n*italics*\n\n[freeCodeCamp Logo](twitter.com)\n\n```\nconsole.log(\"Hello, World\");\n```\n- fdf\n- dfadf\n- dfdfdf\n\n> Block Quotes!',
+            renderedHtml : '',
             arrayOfMarkups: []
         }
 
         this.handleMarkdownChange = this.handleMarkdownChange.bind(this);
     }
 
+    componentDidMount() {
+        document.getElementById('preview').innerHTML = marked.parse(this.state.markdown);
+    }
+
     handleMarkdownChange(event) {
 
+        let lineBrRegex = /[\n]+/g
         this.setState({markdown: event.target.value}, () => {
 
-            this.setState({arrayOfMarkups: this.state.markdown.split('\n')});
+            // let withBR = marked.parse(this.state.markdown).replace(lineBrRegex, "<br>");
+
+            // this.setState({renderedHtml: withBR}, () => {
+            //     document.getElementById('preview').innerHTML = this.state.renderedHtml;
+            // })
+            document.getElementById('preview').innerHTML = marked.parse(this.state.markdown);
+            // this.setState({arrayOfMarkups: this.state.markdown.split('\n')});
         });
         
     }
@@ -36,35 +49,13 @@ class Markdown extends React.Component {
             <Container>
                 <Row>
                 <Col className="col-6">
-                    <textarea id="editor" onChange={this.handleMarkdownChange} style={{minHeight: '100vh'}} className='w-100'>
+                    <textarea value={this.state.markdown} id="editor" onChange={this.handleMarkdownChange} style={{minHeight: '100vh'}} className='w-100'>
 
                     </textarea>
                 </Col>
                 <Col>
-                    <div id="preview" style={{minHeight: '100vh'}} className="w-100 bg-secondary p-3">
-                        {/* <code className="text-white p-1 bg-dark">Hello</code> */}
-                        {
-                            this.state.arrayOfMarkups.map(markup => {
-
-                                if (markup === "") {
-
-                                    return <br></br>
-                                }
-                                else if (String(markup).replace(REMOVE_EXTRA_SPACES, ' ').match(HEADING_FORM_2)) {
-                                    // console.log('HEADING 2 RENDERED');
-                                    return <Heading value={markup} headingType='2' />
-                                }
-                                else if (String(markup).replace(REMOVE_EXTRA_SPACES, ' ').match(HEADING_FORM_1)) {
-                                    
-                                //    console.log('HEADING 1 RENDERED');
-                                   return <Heading value={markup} headingType='1' />
-                                }
-                                else {
-                                    return <Heading value={markup} headingType='' />
-                                }
-                            })
-                        }
-                    </div>
+                    <div id="preview" style={{minHeight: '100vh'}} className="w-100 bg-light p-3"></div>
+                
                 </Col>
                 </Row>
             </Container>

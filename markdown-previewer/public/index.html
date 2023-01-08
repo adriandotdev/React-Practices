@@ -39,6 +39,35 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <!--     <div id="preview" style={{minHeight: '100vh'}} className="w-100 bg-secondary p-3">
+                        {/* <code className="text-white p-1 bg-dark">Hello</code> */}
+                        {/* {
+                            this.state.arrayOfMarkups.map(markup => {
+
+                                if (markup === "") {
+
+                                    return <br></br>
+                                }
+                                else if (String(markup).replace(REMOVE_EXTRA_SPACES, ' ').match(HEADING_FORM_2)) {
+                                    // console.log('HEADING 2 RENDERED');
+                                    return <Heading value={markup} headingType='2' />
+                                }
+                                else if (String(markup).replace(REMOVE_EXTRA_SPACES, ' ').match(HEADING_FORM_1)) {
+                                    
+                                //    console.log('HEADING 1 RENDERED');
+                                   return <Heading value={markup} headingType='1' />
+                                }
+                                else {
+                                    return <Heading value={markup} headingType='' />
+                                }
+                            })
+                        } */}
+                    </div> -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="">
+      marked.parse('# Marked in the browser\n\nRendered by **marked**.');
+    </script>
   </body>
 </html>
