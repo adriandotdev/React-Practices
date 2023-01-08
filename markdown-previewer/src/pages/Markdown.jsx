@@ -10,7 +10,7 @@ class Markdown extends React.Component {
         super(props);
 
         this.state = {
-            markdown: '# Heading 1\n## Heading 2\n\n`inline-code`\n**bold**\n*italics*\n\n[freeCodeCamp Logo](twitter.com)\n\n```\nconsole.log(\"Hello, World\");\n```\n- fdf\n- dfadf\n- dfdfdf\n\n> Block Quotes!',
+            markdown: '# Heading 1\n## Heading 2\n\n`inline-code`\n**bold**\n*italics*\n\n[freeCodeCamp Logo](twitter.com)\n\n```\nconsole.log(\"Hello, World\");\n```\n- fdf\n- dfadf\n- dfdfdf\n\n> Block Quotes!\n\n![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)',
             renderedHtml : '',
             arrayOfMarkups: []
         }
@@ -24,26 +24,20 @@ class Markdown extends React.Component {
 
     handleMarkdownChange(event) {
 
-        let lineBrRegex = /[\n]+/g
+        marked.setOptions({gfm: 'true', breaks: true})
         this.setState({markdown: event.target.value}, () => {
 
-            // let withBR = marked.parse(this.state.markdown).replace(lineBrRegex, "<br>");
-
-            // this.setState({renderedHtml: withBR}, () => {
-            //     document.getElementById('preview').innerHTML = this.state.renderedHtml;
-            // })
             document.getElementById('preview').innerHTML = marked.parse(this.state.markdown);
-            // this.setState({arrayOfMarkups: this.state.markdown.split('\n')});
         });
         
     }
 
     render() {
 
-        const HEADING_FORM_1 = /#{1} \w/;
-        const HEADING_FORM_2 = /#{2} \w/;
+        // const HEADING_FORM_1 = /#{1} \w/;
+        // const HEADING_FORM_2 = /#{2} \w/;
 
-        const REMOVE_EXTRA_SPACES = /\s+/g;
+        // const REMOVE_EXTRA_SPACES = /\s+/g;
 
         return (
             <Container>
