@@ -1,38 +1,101 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.calculator {
+  height: 50rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.calculator-content {
+  height: 50rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.text-field {
+  display: block;
+  background-color: blue;
+  height: min-content;
+}
+.buttons {
+  display: grid;
+  grid-template-areas: "AC AC AC AC AC AC DIV DIV DIV MUL MUL MUL"
+                      "SEVEN SEVEN SEVEN EIGHT EIGHT EIGHT NINE NINE NINE SUB SUB SUB"
+                      "FOUR FOUR FOUR FIVE FIVE FIVE SIX SIX SIX ADD ADD ADD"
+                      "ONE ONE ONE TWO TWO TWO THREE THREE THREE EQUALS EQUALS EQUALS"
+                      "ZERO ZERO ZERO ZERO ZERO ZERO DECIMAL DECIMAL DECIMAL EQUALS EQUALS EQUALS";
 }
 
-.App-link {
-  color: #61dafb;
+#clear {
+  grid-area: AC;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#divide {
+  grid-area: DIV;
+}
+
+#multiply {
+  grid-area: MUL;
+}
+
+#seven {
+  grid-area: SEVEN;
+}
+
+#eight {
+  grid-area: EIGHT;
+}
+
+#nine {
+  grid-area: NINE;
+}
+
+#subtract {
+  grid-area: SUB;
+}
+
+#four {
+  grid-area: FOUR;
+}
+
+#five {
+  grid-area: FIVE;
+}
+
+#six {
+  grid-area: SIX;
+}
+
+#add {
+  grid-area: ADD;
+}
+
+#one {
+  grid-area: ONE;
+}
+#two {
+  grid-area: TWO;
+}
+
+#three {
+  grid-area: THREE;
+}
+
+#equals {
+  grid-area: EQUALS;
+}
+
+#zero {
+  grid-area: ZERO;
+}
+
+#decimal {
+  grid-area: DECIMAL;
+}
+
+.btn-calc {
+  border: none;
+  border: 1px solid black;
+  outline: none;
+  padding: .5rem;
 }
