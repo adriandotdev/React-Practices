@@ -17,6 +17,10 @@
   background-color: blue;
   height: min-content;
 }
+
+#expression-display {
+  height: 2rem;
+}
 .buttons {
   display: grid;
   grid-template-areas: "AC AC AC AC AC AC DIV DIV DIV MUL MUL MUL"
