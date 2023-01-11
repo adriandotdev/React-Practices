@@ -2,8 +2,6 @@
 
 # dependencies
 /node_modules
-/markdown-previewer/node_modules
-/twenty-five-clock/node_modules
 /.pnp
 .pnp.js
 
@@ -11,9 +9,6 @@
 /coverage
 
 # production
-/markdown-previewer/build
-/random-quote-generator/build
-/twenty-five-plus-five-clock/build
 /build
 
 # misc
