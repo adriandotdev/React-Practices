@@ -13,7 +13,7 @@ class TimeControllers extends React.Component {
   
   render() {
     return (
-        <Row>
+        <Row className="row-cols-1 row-cols-md-2">
             <Col>
                 <TimeComponent
                     labelID="break-label"

@@ -32,7 +32,6 @@ class Timer extends React.Component {
   componentWillMount() {
     document.title = "25 + 5 Clock | adriandotdev";
   }
-  
   incrementBreakLength() {
 
     this.setState(state => ({
@@ -125,7 +124,7 @@ class Timer extends React.Component {
   render() {
     return (
       <div style={{minHeight: '100vh'}} className="d-flex justify-content-center align-items-center bg-dark">
-        <div className="bg-dark container rounded shadow py-2">
+        <div id="main-content" className="bg-dark container rounded shadow py-2">
             <TimeControllers 
                 incBL={() => this.incrementBreakLength()} 
                 decBL={() => this.decrementBreakLength()}
